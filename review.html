@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="static/css/style2.css">
+  <link rel="stylesheet" type="text/css" href="static/css/cyberpunk.css">
+  <style>
+    /* Add some basic styles for spacing and alignment */
+    .container {
+      display: flex;
+      flex-direction: column; /* Change to column layout */
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: var(--red);
+      text-shadow: 0 0 20px var(--red);
+    }
+    .star-widget,
+    .form-group {
+      margin-bottom: 15px;
+    }
+    button {
+      width: 100%;
+      margin-top: 20px; 
+      padding: 10px;
+      box-sizing: border-box; 
+    }
+    cyber-input{
+      color: var(--cyan); 
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1 style="font-size: 25px;">Review it for: <span id="movie-title" style="font-size: 25px;"></span></h1>
+  <form target="_blank" action="/submit_review" method="POST">
+    <div class="star-widget">
+        <input type="radio" name="rate" id="rate-5" value="5">
+        <label for="rate-5" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-4" value="4">
+        <label for="rate-4" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-3" value="3">
+        <label for="rate-3" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-2" value="2">
+        <label for="rate-2" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-1" value="1" checked>
+        <label for="rate-1" class="fas fa-star"></label>
+        <label for="input-text" style="font-size: 25px;">Movie Name:</label>
+        <div class="cyber-input ac-cyan fg-cyan ">
+            <input type="text" id="movie-title-input" class="form-control" name="movie_name" rows="3" required>
+        </div>
+        <label for="input-text " style="font-size: 25px;">Review:</label>
+        <div class="cyber-input ac-cyan fg-cyan  ">
+            <input type="text" placeholder="Describe your experience.." class="form-control" name="message" rows="10" required>
+        </div>
+        <button class="cyber-button bg-black fg-ac-yellow">
+          Submit
+          <span class="glitchtext">FML</span>
+      </button>
+    </div>  
+</form>
+
+
+  <script>
+    // Script to fetch the movie title from URL parameter
+    const movieTitleElement = document.getElementById('movie-title');
+    const movieTitleInput = document.getElementById('movie-title-input');
+    const urlParams = new URLSearchParams(window.location.search);
+    const MovieTitle = urlParams.get('movie');
+    movieTitleElement.textContent = MovieTitle; // Set the movie title in the heading
+    movieTitleInput.value = MovieTitle; // Set the movie title in the textarea input
+  </script>
+
+</div>
+</body>
+</html>

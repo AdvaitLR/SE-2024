@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysed Table</title>
+    <link rel="stylesheet" href="static/css/cyberpunk.css">
+    <style>
+        h1{
+            font-family: Cyberpunk;
+            font-size: 50px;
+            color: var(--black);
+        }
+        th{
+            color:var(--cyan);
+            font-family: Oxanium;
+            font-size: 20px;
+            background-color: var(--red);
+        }
+        tr{
+            color: var(--yellow);
+            font-family: Oxanium;
+            font-size: 20px;
+            background-color: var(--black);
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<h1 class="cyber-h">Review Analysis</h1>
+
+<table class="cyber-table cyber-style-1 ac-ac-black" id="review-table">
+    <div class="cyber-glitch-3">
+    <tr>
+        <th>Review_Id</th>
+        <th>Movie_Name</th>
+        <th>Analysed_Rating</th>
+        <th>Analysed_Review</th>
+        <th>User_Rating</th>
+        <th>User_Review</th>
+        <th>Review_Time</th>
+    </tr>
+    </div>
+    {% for row in data %}
+    <tr>
+        <td>{{ row.Review_Id }}</td>
+        <td>{{ row.Movie_Name }}</td>
+        <td>{{ row.Analysed_Rating }}</td>
+        <td>{{ row.Analysed_Review }}</td>
+        <td>{{ row.User_Rating }}</td>
+        <td>{{ row.User_Review }}</td>
+        <td>{{ row.Review_Time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

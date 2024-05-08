@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success Page</title>
+    <link rel="stylesheet" href="static/css/cyberpunk.css">
+    <style>
+        h1{
+            font-family-Cyberpunk;
+        }
+    </style>
+</head>
+<body>
+    <h1>Success!</h1>
+    <p>Your review has been submitted successfully.</p>
+    <button class="cyber-button bg-red fg-cyan" onclick="redirectToDisplayPage()">
+        Click to view Analysis
+        <span class="glitchtext">FK</span>
+        <span class="tag">Goes to Table</span>
+    </button>
+
+    <script>
+        function redirectToDisplayPage() {
+            window.location.href = "{{ url_for('display') }}";
+        }
+    </script>
+</body>
+</html>
